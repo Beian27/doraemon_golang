@@ -1,0 +1,29 @@
+<template>
+  <el-sub-menu ref="subMenu" :index="routerInfo.name">
+    <template #title>
+      <el-icon>
+        <component :is="routerInfo.meta.icon" />
+      </el-icon>
+      <span>{{ routerInfo.meta.title }}</span>
+    </template>
+    <slot />
+  </el-sub-menu>
+</template>
+
+<script>
+import { defineProps } from 'vue'
+export default {
+  name: 'AsyncSubmenu',
+}
+</script>
+
+<script setup>
+defineProps({
+  routerInfo: {
+    default: function() {
+      return null
+    },
+    type: Object
+  }
+})
+</script>
